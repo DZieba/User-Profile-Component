@@ -1,0 +1,95 @@
+
+*{
+
+  box-sizing: border-box;
+}
+.wrapper{
+  margin:20px auto;
+  border:1px solid black;
+  max-width:1200px;
+  height:700px;
+  font-family: 'Montserrat';
+
+}
+.heading{
+  width:100%;
+  height:140px;
+  background-color: #002C71;
+}
+.profile_image{
+  height:120px;
+  width: 120px;
+  border-radius:50%;
+  display: block;
+  margin:-160px auto 0;
+
+}
+.profile-container{
+  margin:0 auto;
+  width:90%;
+
+
+}
+h2,
+h3{
+  text-align: center;
+  margin:0;
+}
+h2{
+  color: #002C71;
+  margin-top: 40px;
+}
+h3{
+  color: #8298B9 ;
+}
+.profile-info{
+  background-color: #fff;
+  height: 250px;
+  margin-top:-40px;
+  padding:5px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 4px 1px rgba(128, 128, 128, 0.49);
+}
+.profile-info:nth-of-type(2){
+  height:400px;
+  margin-top:20px;
+  padding-top: 40px;
+}
+.row{
+  margin-top:40px;
+  display: flex;
+  justify-content: space-around;
+}
+.col{
+  border-right:1px solid rgba(128, 128, 128, 0.27);
+  padding-right: 30px;
+}
+.col:last-of-type{
+  border:none;
+}
+.value{
+  color: #FFA640;
+  font-size: 24px;
+}
+.title{
+  color: #343E00 ;
+  font-size: 10px;
+}
+.btn-follow{
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+  padding: 13px;
+  border-radius: 100px;
+  background-color: #FFA640;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 4.2px;
+  color:#fff;
+}
+.comments-info{
+  font-size: 14px;
+  color: #FFA640;
+  text-align: center;
+}

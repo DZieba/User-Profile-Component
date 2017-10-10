@@ -1,0 +1,37 @@
+
+
+<div class="wrapper">
+  <div class="heading">
+
+  </div>
+<div class="profile-container">
+  <img class="profile_image"[src]="user.image">
+
+  <div class="profile-info">
+    <h2>{{user.name}}</h2>
+    <h3>{{user.city}}, {{user.country}}</h3>
+    <div class="row">
+      <div class="col">
+      <div class="value">{{user.likes}}</div>
+      <div class="title">Likes</div>
+    </div>
+      <div class="col">
+        <div class="value">{{user.following}}</div>
+        <div class="title">Following</div>
+      </div>
+      <div class="col">
+        <div class="value">{{user.followers}}</div>
+        <div class="title">Followers</div>
+      </div>
+    </div>
+    <button class="btn-follow" type="button">Follow</button>
+  </div>
+  <div class="profile-info">
+<div class="comments-info">
+  <u> Hide comments ({{user.comments}})</u>
+</div>
+  </div>
+
+
+</div>
+</div>
