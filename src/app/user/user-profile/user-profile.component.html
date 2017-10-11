@@ -3,12 +3,19 @@
 <div class="wrapper">
   <div class="heading">
 
+
   </div>
+
 <div class="profile-container">
+
   <img class="profile_image"[src]="user.image">
 
+
+
+
   <div class="profile-info">
-    <h2>{{user.name}}</h2>
+    <i class="icon ion-share shareIcon"></i>
+    <h2>{{user.name}}<i class="icon ion-ios-heart-outline likeIcon" ></i></h2>
     <h3>{{user.city}}, {{user.country}}</h3>
     <div class="row">
       <div class="col">
@@ -24,14 +31,19 @@
         <div class="title">Followers</div>
       </div>
     </div>
-    <button class="btn-follow" type="button">Follow</button>
+      <button class="btn-follow" type="button">Follow</button>
   </div>
   <div class="profile-info">
 <div class="comments-info">
   <u> Hide comments ({{user.comments}})</u>
+
 </div>
+    <app-comments></app-comments>
   </div>
 
 
+
 </div>
+  <div class="commentAdder" (click)="doClick()">Add a comment
+   </div>
 </div>

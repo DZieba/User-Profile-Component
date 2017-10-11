@@ -1,0 +1,11 @@
+<div *ngFor="let comment of comments">
+  <div class="comment-container">
+    <div class="col-1"> <img [src]="comment.image"></div>
+    <div class="col-2"><div class="who_when">{{comment.author}}<span class="commentTime"> {{comment.date |date:'shortTime'}}</span></div>
+  <div class="commentContent"> {{comment.content}}</div>
+  </div>
+  </div>
+<div class="addComment">
+
+</div>
+</div>
