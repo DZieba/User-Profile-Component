@@ -8,6 +8,9 @@ import {CommentsComponent} from './user/comments/comments.component';
 import {CommentsService} from "./user/comments.service";
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {Routes, RouterModule} from "@angular/router";
+import {Autosize} from 'ng-autosize';
+import {FormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
 
 
 const appRoutes: Routes=[
@@ -15,7 +18,7 @@ const appRoutes: Routes=[
   {path:'user-profile', component: UserProfileComponent,children:[
     {path:':id', component:UserProfileComponent}
   ]},
-  {path:'', redirectTo: 'user-profile/1',pathMatch: 'full'}
+  {path:'', redirectTo: 'user-profile/id',pathMatch: 'full'}
 
 
 ];
@@ -24,16 +27,21 @@ const appRoutes: Routes=[
   declarations: [
     AppComponent,
     UserProfileComponent,
-    CommentsComponent
+    CommentsComponent,
+    Autosize
   ],
   imports: [
+
+    HttpModule,
     BrowserModule,
     AngularSvgIconModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+
   ],
   providers: [UserService, CommentsService],
   bootstrap: [AppComponent],
-  exports:[RouterModule]
+
 
 })
 export class AppModule {

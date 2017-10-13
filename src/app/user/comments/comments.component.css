@@ -23,3 +23,27 @@
   float: right;
 
 }
+.commentAdder{
+  display: inline-block;
+  cursor: pointer;
+  font-size: 22px;
+  color:#8298B9;
+  margin:10px 0 5px 25px;
+}
+textarea{
+  border:none;
+  width:90%;
+  margin:0 auto;
+}
+textarea:focus{
+  border:none;
+  outline: none;
+}
+.addButton{
+  display: block;
+  margin:0 auto;
+  padding:10px;
+  outline:none;
+
+  border:none;
+}

@@ -9,3 +9,6 @@
 
 </div>
 </div>
+<textarea class="commentAdder" [(ngModel)]="myComment" (click)="clearDefault()" (keydown)="keyDown($event)"
+></textarea>
+<button *ngIf="myComment!='Add a comment'"   class="addButton" (click)="onAddComment(myComment)">Add comment</button>

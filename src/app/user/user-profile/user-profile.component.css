@@ -17,11 +17,25 @@
   height: 140px;
   background-color: #002C71;
 }
-#shareIcon{
-  position: absolute;
-  margin-top:10px;
-  margin-right:10px;
-  color:yellow;
+
+
+.shareIcon{
+  position: relative;
+  float: right;
+  color:#FFA640;
+  font-size: 20px;
+  margin-top:2px;
+  margin-right: 5px;
+  cursor:pointer;
+
+}
+
+
+.heartIcon{
+  height:15px;
+  width: 15px;
+  margin-left:10px;
+  cursor: pointer;
 }
 .profile_image {
   height: 120px;
@@ -58,13 +72,7 @@ h3 {
   font-size:17px;
   color: #808080;
 }
-.shareIcon{
-  color:#FFA640;
-  font-size: 20px;
-position: absolute;
-  margin-top:2px;
- right:40px;
-}
+
 
 .profile-info {
   background-color: #fff;
@@ -125,10 +133,20 @@ position: absolute;
   color: #FFA640;
   text-align: center;
 }
-.commentAdder{
-  display: inline-block;
-  cursor: pointer;
-  font-size: 22px;
-  color:#8298B9;
-  margin:10px 0 5px 25px;
+
+
+
+@media only screen and (min-width: 600px) {
+
+  .profile-container{
+    margin-top: -120px;
+  }
+
+
+  .profile_image {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 10%;
+
+  }
 }

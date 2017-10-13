@@ -14,8 +14,8 @@
 
 
   <div class="profile-info">
-    <i class="icon ion-share shareIcon"></i>
-    <h2>{{user.name}}<i class="icon ion-ios-heart-outline likeIcon" ></i></h2>
+    <img class="shareIcon" src="../../../assets/icons/share.svg" (click)="shareWebsite()">
+    <h2>{{user.name}}<img class="heartIcon" src="../../../assets/heart.png" (click)="likeComment()"></h2>
     <h3>{{user.city}}, {{user.country}}</h3>
     <div class="row">
       <div class="col">
@@ -36,7 +36,7 @@
   <div class="profile-info">
 <div class="comments-info">
   <u> Hide comments ({{user.comments}})</u>
-
+  {{currentId}}
 </div>
     <app-comments></app-comments>
   </div>
@@ -44,6 +44,6 @@
 
 
 </div>
-  <div class="commentAdder" (click)="doClick()">Add a comment
-   </div>
+
+
 </div>

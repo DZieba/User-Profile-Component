@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Comment} from "./comment.model";
 import {UserService} from "./user.service";
 import {User} from "./user.model";
+import {Subject} from "rxjs";
 
 
 @Injectable()
@@ -9,6 +10,7 @@ export class CommentsService {
 
   sampleAuthor: User = this.userService.getUsers()[1];
   postedDate = new Date(2017, 1, 1);
+  commentsChanged=new Subject<Comment[]>();
 
   private commentsList: Comment[] = [
     {
@@ -62,6 +64,7 @@ export class CommentsService {
 
   addComment(comment: Comment) {
     this.commentsList.push(comment);
+    this.commentsChanged.next(this.commentsList);
   }
 
 }
