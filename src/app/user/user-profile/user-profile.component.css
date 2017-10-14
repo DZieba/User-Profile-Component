@@ -6,7 +6,7 @@
 
 .wrapper {
   margin: 20px auto;
-  max-width: 1200px;
+  max-width: 800px;
   height: auto;
   font-family: 'Montserrat';
 
@@ -115,18 +115,18 @@ h3 {
 }
 
 .btn-follow {
-  display: block;
-  width: 80%;
-  margin: 20px auto;
-  padding: 13px;
-  border-radius: 100px;
-  background-color: #FFA640;
-  outline: none;
-  border: none;
-  text-transform: uppercase;
-  letter-spacing: 4.2px;
-  color: #fff;
-}
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    padding: 13px;
+    border-radius: 100px;
+    background-color: #FFA640;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 4.2px;
+    color: #fff;
+  }
 
 .comments-info {
   font-size: 14px;
@@ -134,7 +134,34 @@ h3 {
   text-align: center;
 }
 
-
+.modal{
+  display: none;
+  position: fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: rgba(19, 19, 19, 0.88);
+  z-index: 1000;
+  color: #000;
+}
+.modal-body{
+  background-color: rgba(200, 200, 204, 0.67);
+  height:150px;
+  width:300px;
+  position: relative;
+  margin:10% auto;
+  padding:5px;
+  z-index: 1100;
+}
+#closeModalBtn{
+  float:right;
+  margin-right:20%;
+  margin-top:8%;
+  z-index: 1200;
+}
 
 @media only screen and (min-width: 600px) {
 
@@ -145,8 +172,35 @@ h3 {
 
   .profile_image {
     position: absolute;
-    margin-top: 20px;
-    margin-left: 10%;
+    height:100px;
+    width:100px;
+    margin-top: 30px;
+    margin-left: 8%;
+
+  }
+
+  .row {
+    margin-top: 40px;
+    display: block;
+    margin-left:15%;
+
+  }
+.col{
+  float:left;
+  margin-top:10px;
+  padding: 0 30px;
+}
+
+  .btn-follow {
+    display: inline-block;
+    width: 18%;
+    margin-top: 15px;
+
+  }
+  #closeModalBtn{
+
+    margin-top: 12%;
+    right: 10%;
 
   }
 }

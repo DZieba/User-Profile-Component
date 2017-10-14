@@ -4,6 +4,7 @@
   border-bottom:1px solid rgba(128, 128, 128, 0.18);
   display: flex;
   line-height:24px;
+  overflow-x: hidden;
 }
 
 
@@ -12,17 +13,29 @@
   width: 40px;
   border-radius: 50%;
 }
-.who_when
+.col-1{
+  flex-grow:0;
+}
+.col-2{
+  flex-grow: 5;
+  display: flex;
+  flex-direction:column;
+
+}
+.commentHeader{
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+}
+.who
 {
   font-size: 14px;
   color: #002C71 ;
   margin-left:10px;
   margin-top:10px;
-}
-.commentTime{
-  float: right;
 
 }
+
 .commentAdder{
   display: inline-block;
   cursor: pointer;

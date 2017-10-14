@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {User} from "../user.model";
 import {UserService} from "../user.service";
 import {Comment} from "../comment.model";
@@ -14,12 +14,14 @@ import {Subscription} from "rxjs";
 export class UserProfileComponent implements OnInit {
 
   users: User[] = [];
-  name = '';
   user: User;
   comments: Comment[] = [];
   currentRoute:any;
-  currentId;
+  currentId:number;
 sub:Subscription;
+  @ViewChild('myModal') el:ElementRef;
+  htmlToAdd='';
+
 
   constructor(private userService: UserService,
   private router:Router,
@@ -28,18 +30,20 @@ sub:Subscription;
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-    console.log( +params['id']);
-
+    this.sub = this.route.params
+      .subscribe(
+        (params:Params) => {
+    this.currentId=params['id'];
+console.log(this.currentId)
   });
 
 
 
 
     this.users = this.userService.getUsers();
-    console.log(this.users);
-    this.name = this.users[1].name;
-    this.user = this.users[1];
+    this.user = this.users[this.currentId];
+
+
   }
 
   likeComment(){
@@ -48,11 +52,20 @@ sub:Subscription;
   }
 
 shareWebsite() {
-  console.log(this.currentId);
+  this.currentRoute=this.router.url;
+  this.el.nativeElement.style.display='block';
+  this.htmlToAdd= '<h2>Current website url is: '+window.location.origin+this.currentRoute+ '</h2>'
 
 
 
-    this.currentRoute=this.router.url;
-    console.log(window.location.origin+this.currentRoute);
 }
+followUser(){
+    this.user.followers++;
+}
+
+  closeModal(){
+    this.el.nativeElement.style.display='none';
+  }
+
+
 }

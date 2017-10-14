@@ -11,16 +11,13 @@ import {Routes, RouterModule} from "@angular/router";
 import {Autosize} from 'ng-autosize';
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
+import { DateDifferencePipe } from './user/comments/date-difference.pipe';
+
 
 
 const appRoutes: Routes=[
-
-  {path:'user-profile', component: UserProfileComponent,children:[
-    {path:':id', component:UserProfileComponent}
-  ]},
-  {path:'', redirectTo: 'user-profile/id',pathMatch: 'full'}
-
-
+  {path:'', redirectTo: 'user-profile/0',pathMatch: 'full'},
+  {path:'user-profile/:id', component: UserProfileComponent}
 ];
 
 @NgModule({
@@ -28,15 +25,17 @@ const appRoutes: Routes=[
     AppComponent,
     UserProfileComponent,
     CommentsComponent,
-    Autosize
+    Autosize,
+    DateDifferencePipe
+
   ],
   imports: [
 
     HttpModule,
     BrowserModule,
     AngularSvgIconModule,
-    RouterModule.forRoot(appRoutes),
-    FormsModule,
+   [RouterModule.forRoot(appRoutes)],
+    FormsModule
 
   ],
   providers: [UserService, CommentsService],

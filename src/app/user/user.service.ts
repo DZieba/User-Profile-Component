@@ -6,6 +6,7 @@ export class UserService {
 
   private usersList: User[] = [
     {
+id:0,
       image: '../../assets/harvey.jpg',
       name: 'Harvey Spectre',
       city: 'New York',
@@ -15,8 +16,8 @@ export class UserService {
       followers: 444,
       comments: 123
     },
-    {
-      image: '../../assets/harvey.jpg',
+    {id:1,
+      image: '../../assets/mike.jpg',
       name: 'Mike Ross',
       city: 'New York',
       country: 'USA',
@@ -25,8 +26,8 @@ export class UserService {
       followers: 244,
       comments: 123
     },
-    {
-      image: '../../assets/harvey.jpg',
+    {id:2,
+      image: '../../assets/Sandra.jpg',
       name: 'Sandra Almond',
       city: 'Queensland',
       country: 'Australia',
@@ -35,8 +36,8 @@ export class UserService {
       followers: 444,
       comments: 103
     },
-    {
-      image: '../../assets/shoe1.jpg',
+    {id:3,
+      image: '../../assets/Alice.jpg',
       name: 'Alice Bevery',
       city: 'Wiesbaden',
       country: 'Germany',
@@ -45,9 +46,9 @@ export class UserService {
       followers: 444,
       comments: 123
     },
-    {
-      image: '../../assets/shoe1.jpg',
-      name: 'Morgan Freeman',
+    {id:4,
+      image: '../../assets/Morgan.jpg',
+      name: 'Morgan Slaveman',
       city: 'Shoe blue',
       country: 'Poland',
       likes: 0,
@@ -55,9 +56,9 @@ export class UserService {
       followers: 444,
       comments: 123
     },
-    {
-      image: '../../assets/shoe1.jpg',
-      name: 'Kate Winslet',
+    {id:5,
+      image: '../../assets/Kate.jpg',
+      name: 'Kate Winston',
       city: 'Shoe blue',
       country: 'Poland',
       likes: 0,
@@ -65,8 +66,8 @@ export class UserService {
       followers: 444,
       comments: 123
     },
-    {
-      image: '../../assets/shoe1.jpg',
+    {id:6,
+      image: '../../assets/don.jpg',
       name: 'Don Juan',
       city: 'Shoe blue',
       country: 'Poland',
@@ -75,8 +76,8 @@ export class UserService {
       followers: 444,
       comments: 123
     },
-    {
-      image: '../../assets/shoe1.jpg',
+    {id:7,
+      image: '../../assets/grana.jpg',
       name: 'Grana Padano',
       city: 'Shoe blue',
       country: 'Poland',
@@ -97,5 +98,13 @@ export class UserService {
     return this.usersList;
   }
 
+  getUser(id: number) {
+    const user = this.usersList.find(
+      (u) => {
+        return u.id === id;
+      }
+    );
+    return user
+  }
 
 }
