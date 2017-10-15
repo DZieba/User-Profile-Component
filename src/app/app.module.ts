@@ -8,7 +8,6 @@ import {CommentsComponent} from './user/comments/comments.component';
 import {CommentsService} from "./user/comments.service";
 import {AngularSvgIconModule} from 'angular-svg-icon';
 import {Routes, RouterModule} from "@angular/router";
-import {Autosize} from 'ng-autosize';
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import { DateDifferencePipe } from './user/comments/date-difference.pipe';
@@ -25,7 +24,6 @@ const appRoutes: Routes=[
     AppComponent,
     UserProfileComponent,
     CommentsComponent,
-    Autosize,
     DateDifferencePipe
 
   ],
