@@ -1,7 +1,9 @@
+
+
 <div *ngFor="let comment of comments">
   <div class="comment-container">
-    <div class="col-1"> <img [src]="comment.image"></div>
-    <div class="col-2"><div class="commentHeader"> <div class="who">{{comment.author}}</div><div class="commentTime"> {{comment.date |dateDifference}}</div></div>
+    <div class="col-1"> <img [src]="comment.author.image"></div>
+    <div class="col-2"><div class="commentHeader"> <div class="who">{{comment.author.name}}</div><div class="commentTime"> {{  comment.test }}</div></div>
   <div class="commentContent"> {{comment.content}}</div>
   </div>
   </div>
@@ -9,6 +11,6 @@
 
 </div>
 </div>
-<textarea class="commentAdder" [(ngModel)]="defaultComment" (click)="clearDefault()" (keydown)="keyDown($event)"
-></textarea>
-<button *ngIf="defaultComment!='Add a comment'"   class="addButton" (click)="onAddComment(defaultComment)">Add comment</button>
+<textarea class="commentAdder" [(ngModel)]="defaultComment" (click)="clearDefault()" (keydown)="onEnterPressed($event)"></textarea>
+<button *ngIf="defaultComment != 'Add a comment'"   class="addButton" (click)="onAddComment(defaultComment)">Add comment</button>
+

@@ -12,59 +12,78 @@ import {Subscription} from "rxjs";
 
 })
 export class UserProfileComponent implements OnInit {
-
   users: User[] = [];
   user: User;
-  comments: Comment[] = [];
-  currentRoute:any;
-  currentId:number;
-sub:Subscription;
-  @ViewChild('myModal') el:ElementRef;
-  htmlToAdd='';
+  currentRoute: any;
+  currentId: number;
+  sub: Subscription;
+  @ViewChild('myModal') el: ElementRef;
+  htmlToAdd = '';
+  isLiked = false;
 
+
+  followState: string = 'follow';
 
   constructor(private userService: UserService,
-  private router:Router,
-  private route:ActivatedRoute
- ) {
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.sub = this.route.params
       .subscribe(
-        (params:Params) => {
-    this.currentId=params['id'];
-console.log(this.currentId)
-  });
+        (params: Params) => {
+          this.currentId = params['id'];
+          console.log(this.currentId)
+        });
 
 
+    this.userService.getUsers()
+      .subscribe(
+        (users)=>{
+          this.users=users;
+          this.user = this.users[this.currentId];
+    }
+      );
+    console.log(JSON.stringify(this.users));
+    ;
 
-
-    this.users = this.userService.getUsers();
-    this.user = this.users[this.currentId];
 
 
   }
 
-  likeComment(){
-   this.user.likes++;
-   console.log(this.user.likes)
+  toggleLike() {
+    if (!this.isLiked) {
+      this.user.likes++;
+    }
+    else {
+      this.user.likes--;
+
+    }
+    this.isLiked = !this.isLiked
   }
 
-shareWebsite() {
-  this.currentRoute=this.router.url;
-  this.el.nativeElement.style.display='block';
-  this.htmlToAdd= '<h2>Current website url is: '+window.location.origin+this.currentRoute+ '</h2>'
+  shareWebsite() {
+    this.currentRoute = this.router.url;
+    this.el.nativeElement.style.display = 'block';
+    this.htmlToAdd = '<h4>Current website url is: ' + window.location.origin + this.currentRoute + '</h4>'
 
 
+  }
 
-}
-followUser(){
-    this.user.followers++;
-}
+  followUser(state: string) {
+    if (state == 'follow') {
+      this.user.followers++;
+      this.followState = 'unfollow'
+    }
+    else {
+      this.user.followers--;
+      this.followState = 'follow'
+    }
+  }
 
-  closeModal(){
-    this.el.nativeElement.style.display='none';
+  closeModal() {
+    this.el.nativeElement.style.display = 'none';
   }
 
 

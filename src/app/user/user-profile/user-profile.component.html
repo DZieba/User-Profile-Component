@@ -3,46 +3,47 @@
   <div class="profile-container">
 
     <img class="profile_image" [src]="user.image">
-
-
-
-
-  <div class="profile-info">
-    <img class="shareIcon" src="../../../assets/icons/share.svg" (click)="shareWebsite()">
-    <h2>{{user.name}}<img class="heartIcon" src="../../../assets/heart.png" (click)="likeComment()"></h2>
-    <h3>{{user.city}}, {{user.country}}</h3>
-    <div class="row">
-      <div class="col">
-      <div class="value">{{user.likes}}</div>
-      <div class="title">Likes</div>
-    </div>
-      <div class="col">
-        <div class="value">{{user.following}}</div>
-        <div class="title">Following</div>
+    <div class="profile-info">
+      <img class="shareIcon" src="../../../assets/icons/share.svg" (click)="shareWebsite()">
+      <h2>{{user.name}}<img class="heartIcon" src="../../../assets/heart.png"
+                            [style.visibility]="isLiked? 'hidden':'visible'" (click)="toggleLike()"><span class="unlike"
+                                                                                                          [style.visibility]="isLiked? 'visible':'hidden'"
+                                                                                                          (click)="toggleLike()">Don't like</span>
+      </h2>
+      <h3>{{user.city}}, {{user.country}}</h3>
+      <div class="row">
+        <div class="col">
+          <div class="value">{{user.likes}}</div>
+          <div class="title">Likes</div>
+        </div>
+        <div class="col">
+          <div class="value">{{user.following}}</div>
+          <div class="title">Following</div>
+        </div>
+        <div class="col">
+          <div class="value">{{user.followers}}</div>
+          <div class="title">Followers</div>
+        </div>
       </div>
-      <div class="col">
-        <div class="value">{{user.followers}}</div>
-        <div class="title">Followers</div>
-      </div>
+      <button class="btn-follow" type="button" (click)="followUser(followState)"> {{followState}}</button>
+      <!-- <button *ngIf="!profileCommented" class="btn-follow" type="button" (click)="followUser()">Folkkkkkkkkkkkkkklow</button> -->
     </div>
-      <button class="btn-follow" type="button" (click)="followUser()">Follow</button>
-  </div>
-  <div class="profile-info">
-<div class="comments-info">
-  <u> Hide comments ({{user.comments}})</u>
-  {{currentId}}
-</div>
-    <app-comments [commentedUser]="user"></app-comments>
-  </div>
+    <div class="profile-info">
+      <div class="comments-info" (click)="ToggleComments()">
+        <u> Hide comments ({{user.comments}}) </u>
+
+      </div>
+      <app-comments [commentedUser]="user"></app-comments>
+    </div>
 
 
-</div>
+  </div>
   <div class="modal" #myModal>
-     <button type="button" class="btn btn-default" id="closeModalBtn" (click)="closeModal()">Close</button>
+    <button type="button" class="btn btn-default" id="closeModalBtn" (click)="closeModal()">Close</button>
     <div class="modal-body" [innerHtml]="htmlToAdd">
 
-      </div>
     </div>
   </div>
+</div>
 
 

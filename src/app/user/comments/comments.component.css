@@ -54,9 +54,14 @@ textarea:focus{
 }
 .addButton{
   display: block;
-  margin:0 auto;
-  padding:10px;
-  outline:none;
-
-  border:none;
+  width: 40%;
+  margin: 20px auto;
+  padding: 13px;
+  border-radius: 100px;
+  background-color: #FFA640;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 4.2px;
+  color: #fff;
 }

@@ -11,60 +11,87 @@ import {Subscription} from "rxjs";
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
-@Input('commentedUser') commentedUser:User;
+  @Input('commentedUser')
+  private defaultCommentValue = 'Add a comment';
+  private commentedUser: User;
+  private comments: Comment[] = [];
+  private defaultComment: string = 'Add a comment';
+  private sampleUser: User;
 
-  comment: Comment;
-  comments: Comment[] = [];
-  defaultComment: string = 'Add a comment';
-  sampleUser: User;
-  subscription: Subscription;
   constructor(private commentsService: CommentsService,
-  private userService:UserService) {};
-randomUser;
+              private userService: UserService) {
+  };
+
 
   ngOnInit() {
 
-    this.comments = this.commentsService.getComments();
-    this.comments.sort(function (a, b) {
-      var key1 = new Date(a.date);
-      var key2 = new Date(b.date);
+    this.commentsService.getComments()
+      .subscribe( (comments) => {
+        this.comments = comments;
+        console.log(this.comments);
+        this.comments.forEach(comment => {
+          comment.test = this.calculateDateDiffrences(new Date(comment.date));
+        })
+          this.comments.sort(function (a, b) {
+            var key1 = new Date(a.date);
+            var key2 = new Date(b.date);
 
-      if (key1 < key2) {
-        return 1;
-      } else if (key1 == key2) {
-        return 0;
-      } else {
-        return -1;
-      }
-    });
-
-
-    this.subscription = this.commentsService.commentsChanged
-      .subscribe(
-        (comments: Comment[]) => {
-          this.comments = comments;
+            if (key1 < key2) {
+              return -1;
+            } else if (key1 == key2) {
+              return 0;
+            } else {
+              return 1;
+            }
+          });
         }
-      )
+
+      );
+
+    this.userService.getUsers()
+      .subscribe(
+        (users) => {
+          this.sampleUser = users[Math.floor(Math.random() * 8)];
+        })
   }
 
-  onAddComment(){
-    this.randomUser=Math.floor(Math.random()*8);
-    this.sampleUser = this.userService.getUsers()[this.randomUser];
-    this.comment={image:this.sampleUser.image,author:this.sampleUser.name,date:new Date,content:this.defaultComment}
-    this.commentsService.addComment(this.comment);
-    this.defaultComment='Add a comment';
-    console.log(this.commentedUser.comments++);
+  onAddComment() {
+    console.log(this.sampleUser);
+    let now: Date = new Date();
+    this.comments.push(new Comment(this.sampleUser, now, this.defaultComment, this.calculateDateDiffrences(now)));
+    console.log(this.comments);
+    this.defaultComment = 'Add a comment';
   }
-  keyDown(event){
-    if(event.keyCode==13){
+
+  onEnterPressed(event) {
+    if (event.keyCode == 13) {
       this.onAddComment();
     }
   }
 
-  clearDefault(){
-    if(this.defaultComment=='Add a comment'){
-      this.defaultComment='';
+  clearDefault() {
+    if (this.defaultComment == 'Add a comment') {
+      this.defaultComment = '';
     }
+  }
+
+  calculateDateDiffrences(date: Date) {
+    let now: Date = new Date();
+    let timeDiff: number = Math.abs(now.getTime() - date.getTime());
+    let diffDays: number = Math.floor(timeDiff / (1000 * 3600 * 24));
+
+    if (diffDays < 1) {
+      diffDays = Math.floor(timeDiff / (1000 * 3600));
+      if (diffDays < 1) {
+        diffDays = Math.floor(timeDiff / (1000 * 60))
+        return diffDays + ' m'
+      }
+      return diffDays + ' h'
+    }
+    else {
+      return diffDays + ' d'
+    }
+
   }
 
 

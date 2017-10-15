@@ -1,5 +1,5 @@
 export class User {
-public id:number;
+  public id:number;
   public image;
   public name;
   public city: string;

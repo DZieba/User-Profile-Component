@@ -1,110 +1,18 @@
 import {Injectable} from '@angular/core';
 import {User} from "./user.model";
+import {Http} from '@angular/http';
+import {Observable} from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class UserService {
 
-  private usersList: User[] = [
-    {
-id:0,
-      image: '../../assets/harvey.jpg',
-      name: 'Harvey Spectre',
-      city: 'New York',
-      country: 'USA',
-      likes: 100,
-      following: 333,
-      followers: 444,
-      comments: 123
-    },
-    {id:1,
-      image: '../../assets/mike.jpg',
-      name: 'Mike Ross',
-      city: 'New York',
-      country: 'USA',
-      likes: 12,
-      following: 303,
-      followers: 244,
-      comments: 123
-    },
-    {id:2,
-      image: '../../assets/Sandra.jpg',
-      name: 'Sandra Almond',
-      city: 'Queensland',
-      country: 'Australia',
-      likes: 0,
-      following: 333,
-      followers: 444,
-      comments: 103
-    },
-    {id:3,
-      image: '../../assets/Alice.jpg',
-      name: 'Alice Bevery',
-      city: 'Wiesbaden',
-      country: 'Germany',
-      likes: 0,
-      following: 333,
-      followers: 444,
-      comments: 123
-    },
-    {id:4,
-      image: '../../assets/Morgan.jpg',
-      name: 'Morgan Slaveman',
-      city: 'Shoe blue',
-      country: 'Poland',
-      likes: 0,
-      following: 333,
-      followers: 444,
-      comments: 123
-    },
-    {id:5,
-      image: '../../assets/Kate.jpg',
-      name: 'Kate Winston',
-      city: 'Shoe blue',
-      country: 'Poland',
-      likes: 0,
-      following: 333,
-      followers: 444,
-      comments: 123
-    },
-    {id:6,
-      image: '../../assets/don.jpg',
-      name: 'Don Juan',
-      city: 'Shoe blue',
-      country: 'Poland',
-      likes: 0,
-      following: 333,
-      followers: 444,
-      comments: 123
-    },
-    {id:7,
-      image: '../../assets/grana.jpg',
-      name: 'Grana Padano',
-      city: 'Shoe blue',
-      country: 'Poland',
-      likes: 0,
-      following: 333,
-      followers: 444,
-      comments: 123
-    },
-  ];
-
-
-  constructor() {
-
+  constructor(private http: Http) {
   }
 
-
-  getUsers() {
-    return this.usersList;
+  public getUsers(): Observable<User[]> {
+    return this.http.get("./assets/users.json")
+      .map((response) => response.json());
   }
-
-  getUser(id: number) {
-    const user = this.usersList.find(
-      (u) => {
-        return u.id === id;
-      }
-    );
-    return user
-  }
-
 }

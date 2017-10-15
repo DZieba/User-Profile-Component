@@ -4,16 +4,24 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'dateDifference'
 })
 export class DateDifferencePipe implements PipeTransform {
-myDate=new Date();
 
+  transform(value: Date): string {
 
-  transform(value: Date, args?: any): any {
+    let date1: Date = new Date();
+    let timeDiff: number = Math.abs(date1.getTime() - value.getTime());
+    let diffDays: number = Math.floor(timeDiff / (1000 * 3600 * 24));
 
-    let result=this.myDate.getTime()-value.getTime();
-    return result/(86400000)
+    if (diffDays < 1) {
+      diffDays = Math.floor(timeDiff / (1000 * 3600));
+      if (diffDays < 1) {
+        diffDays = Math.floor(timeDiff / (1000 * 60))
+        return diffDays + ' m'
+      }
+      return diffDays + ' h'
+    }
+    else {
+      return diffDays + ' d'
+    }
+
   }
-
-
-
-
 }
