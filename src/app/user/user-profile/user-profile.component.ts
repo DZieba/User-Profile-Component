@@ -20,7 +20,8 @@ export class UserProfileComponent implements OnInit {
   @ViewChild('myModal') el: ElementRef;
   htmlToAdd = '';
   isLiked = false;
-
+  commentOption: string = 'hide comments';
+  commentsToDisplay = true;
 
   followState: string = 'follow';
 
@@ -40,14 +41,13 @@ export class UserProfileComponent implements OnInit {
 
     this.userService.getUsers()
       .subscribe(
-        (users)=>{
-          this.users=users;
+        (users) => {
+          this.users = users;
           this.user = this.users[this.currentId];
-    }
+        }
       );
     console.log(JSON.stringify(this.users));
     ;
-
 
 
   }
@@ -66,7 +66,7 @@ export class UserProfileComponent implements OnInit {
   shareWebsite() {
     this.currentRoute = this.router.url;
     this.el.nativeElement.style.display = 'block';
-    this.htmlToAdd = '<h4>Current website url is: ' + window.location.origin + this.currentRoute + '</h4>'
+    this.htmlToAdd = '<h4>Current website url is:<br><br> ' + window.location.origin + this.currentRoute + '</h4>'
 
 
   }
@@ -86,5 +86,17 @@ export class UserProfileComponent implements OnInit {
     this.el.nativeElement.style.display = 'none';
   }
 
+  ToggleComments() {
+    if (this.commentsToDisplay) {
+      this.commentOption = 'show comments';
+    }
+    else {
+      this.commentOption = 'hide comments';
+    }
 
+
+    this.commentsToDisplay = !this.commentsToDisplay;
+
+
+  }
 }

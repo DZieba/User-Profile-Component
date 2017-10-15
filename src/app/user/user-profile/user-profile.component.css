@@ -165,9 +165,19 @@ h3 {
 }
 #closeModalBtn{
   float:right;
-  margin-right:20%;
-  margin-top:8%;
   z-index: 1200;
+  display: block;
+  width: 25%;
+  margin: 80px 100px;
+  padding: 13px;
+  border-radius: 100px;
+  background-color: #FFA640;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #fff;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 600px) {
@@ -182,7 +192,7 @@ h3 {
     height:100px;
     width:100px;
     margin-top: 30px;
-    margin-left: 8%;
+    margin-left: 6%;
 
   }
 
@@ -206,8 +216,9 @@ h3 {
   }
   #closeModalBtn{
 
-    margin-top: 12%;
-    right: 10%;
+
+    width: 12%;
+
 
   }
 }

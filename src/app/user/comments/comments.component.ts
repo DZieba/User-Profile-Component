@@ -3,7 +3,7 @@ import {CommentsService} from "../comments.service";
 import {Comment} from "../comment.model";
 import {UserService} from "../user.service";
 import {User} from "../user.model";
-import {Subscription} from "rxjs";
+
 
 @Component({
   selector: 'app-comments',
@@ -17,6 +17,7 @@ export class CommentsComponent implements OnInit {
   private comments: Comment[] = [];
   private defaultComment: string = 'Add a comment';
   private sampleUser: User;
+
 
   constructor(private commentsService: CommentsService,
               private userService: UserService) {
@@ -56,10 +57,10 @@ export class CommentsComponent implements OnInit {
   }
 
   onAddComment() {
-    console.log(this.sampleUser);
+
     let now: Date = new Date();
     this.comments.push(new Comment(this.sampleUser, now, this.defaultComment, this.calculateDateDiffrences(now)));
-    console.log(this.comments);
+
     this.defaultComment = 'Add a comment';
   }
 

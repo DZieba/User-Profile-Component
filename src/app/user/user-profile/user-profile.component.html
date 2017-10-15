@@ -26,14 +26,13 @@
         </div>
       </div>
       <button class="btn-follow" type="button" (click)="followUser(followState)"> {{followState}}</button>
-      <!-- <button *ngIf="!profileCommented" class="btn-follow" type="button" (click)="followUser()">Folkkkkkkkkkkkkkklow</button> -->
     </div>
     <div class="profile-info">
       <div class="comments-info" (click)="ToggleComments()">
-        <u> Hide comments ({{user.comments}}) </u>
+        <u> {{commentOption}} ({{user.comments}}) </u>
 
       </div>
-      <app-comments [commentedUser]="user"></app-comments>
+      <app-comments *ngIf="commentsToDisplay" [commentedUser]="user"></app-comments>
     </div>
 
 
