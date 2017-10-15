@@ -11,7 +11,7 @@ import {Http} from "@angular/http";
 
 @Injectable()
 export class CommentsService {
-
+  commentsNumberChanged=new Subject<number>();
   constructor(private http: Http) {
   }
 

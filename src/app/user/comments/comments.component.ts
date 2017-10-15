@@ -3,6 +3,7 @@ import {CommentsService} from "../comments.service";
 import {Comment} from "../comment.model";
 import {UserService} from "../user.service";
 import {User} from "../user.model";
+import {Subject} from "rxjs";
 
 
 @Component({
@@ -62,6 +63,7 @@ export class CommentsComponent implements OnInit {
     this.comments.push(new Comment(this.sampleUser, now, this.defaultComment, this.calculateDateDiffrences(now)));
 
     this.defaultComment = 'Add a comment';
+    this.commentsService.commentsNumberChanged.next(1);
   }
 
   onEnterPressed(event) {
@@ -94,6 +96,8 @@ export class CommentsComponent implements OnInit {
     }
 
   }
+
+
 
 
 }

@@ -4,6 +4,7 @@ import {UserService} from "../user.service";
 import {Comment} from "../comment.model";
 import {ActivatedRoute, Router, Params} from "@angular/router";
 import {Subscription} from "rxjs";
+import {CommentsService} from "../comments.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -17,6 +18,7 @@ export class UserProfileComponent implements OnInit {
   currentRoute: any;
   currentId: number;
   sub: Subscription;
+  sub1:Subscription;
   @ViewChild('myModal') el: ElementRef;
   htmlToAdd = '';
   isLiked = false;
@@ -27,7 +29,8 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private userService: UserService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+  private commentsService:CommentsService) {
   }
 
   ngOnInit() {
@@ -49,7 +52,12 @@ export class UserProfileComponent implements OnInit {
     console.log(JSON.stringify(this.users));
     ;
 
-
+    this.sub1=this.commentsService.commentsNumberChanged
+      .subscribe(
+        (number)=>{
+          this.user.comments+=number;
+        }
+      )
   }
 
   toggleLike() {
