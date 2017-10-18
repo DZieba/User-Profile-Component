@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {User} from "../user.model";
 import {UserService} from "../user.service";
-import {Comment} from "../comment.model";
 import {ActivatedRoute, Router, Params} from "@angular/router";
 import {Subscription} from "rxjs";
 import {CommentsService} from "../comments.service";

@@ -42,6 +42,7 @@
 .heartIcon:hover{
   height:17px;
   width: 17px;
+  margin-left:8px;
 }
 .profile_image {
   height: 120px;
