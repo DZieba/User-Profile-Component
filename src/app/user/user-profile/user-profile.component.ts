@@ -49,8 +49,7 @@ export class UserProfileComponent implements OnInit {
           this.user = this.users[this.currentId];
         }
       );
-    console.log(JSON.stringify(this.users));
-    ;
+
 
     this.sub1=this.commentsService.commentsNumberChanged
       .subscribe(

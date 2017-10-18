@@ -11,6 +11,7 @@ import {Routes, RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import { DateDifferencePipe } from './user/comments/date-difference.pipe';
+import {DataStorageService} from "./user/data-storage.service";
 
 
 
@@ -36,7 +37,7 @@ const appRoutes: Routes=[
     FormsModule
 
   ],
-  providers: [UserService, CommentsService],
+  providers: [UserService, CommentsService, DataStorageService],
   bootstrap: [AppComponent],
 
 

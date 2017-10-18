@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Comment} from "./comment.model";
-import {UserService} from "./user.service";
-import {User} from "./user.model";
 import {Subject} from "rxjs";
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
@@ -11,7 +9,8 @@ import {Http} from "@angular/http";
 
 @Injectable()
 export class CommentsService {
-  commentsNumberChanged=new Subject<number>();
+  commentsNumberChanged = new Subject<number>();
+
   constructor(private http: Http) {
   }
 
@@ -20,6 +19,15 @@ export class CommentsService {
     return this.http.get("./assets/comments.json")
       .map((response) => response.json())
   }
+
+  public addComment(newComment, chosenArray) {
+    chosenArray.push(newComment);
+    this.commentsNumberChanged.next(1);
+  }
+
+
+
+
 }
 
 
