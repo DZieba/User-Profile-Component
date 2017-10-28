@@ -1,0 +1,19 @@
+<div class="article-preview">
+<app-article-meta [article]="articleItem"></app-article-meta>
+
+
+
+  <a [routerLink]="['/article/',articleItem.id]" class="preview_link">
+    <h1>{{articleItem.title}}</h1>
+    <h2>{{articleItem.content}}</h2>
+    <span>Read more....</span>
+<ul class="tagList">
+  <li *ngFor="let tag of articleItem.tagList">
+    {{tag}}
+  </li>
+</ul>
+
+  </a>
+
+
+</div>

@@ -16,4 +16,9 @@ export class UserService {
       .map((response) => response.json());
   }
 
+  public addUser(user){
+    this.http.put("./assets/users.json",user);
+
+  }
+
 }

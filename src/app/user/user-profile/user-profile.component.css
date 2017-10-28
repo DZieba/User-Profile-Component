@@ -1,22 +1,7 @@
 
-* {
 
-  box-sizing: border-box;
-}
 
-.wrapper {
-  margin: 20px auto;
-  max-width: 800px;
-  height: auto;
-  font-family: 'Montserrat';
 
-}
-
-.heading {
-  width: 100%;
-  height: 140px;
-  background-color: #002C71;
-}
 
 
 .shareIcon{

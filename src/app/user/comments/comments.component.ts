@@ -3,6 +3,7 @@ import {CommentsService} from "../comments.service";
 import {Comment} from "../comment.model";
 import {UserService} from "../user.service";
 import {User} from "../user.model";
+import {Router, ActivatedRoute} from "@angular/router";
 
 
 
@@ -13,7 +14,6 @@ import {User} from "../user.model";
 })
 export class CommentsComponent implements OnInit {
   @Input('commentedUser')
-  private defaultCommentValue = 'Add a comment';
   private commentedUser: User;
   private comments;
   private defaultComment: string = 'Add a comment';
@@ -21,7 +21,9 @@ export class CommentsComponent implements OnInit {
 
 
   constructor(private commentsService: CommentsService,
-              private userService: UserService) {
+              private userService: UserService,
+  private router:Router,
+  private route: ActivatedRoute) {
   };
 
 
@@ -96,6 +98,9 @@ export class CommentsComponent implements OnInit {
 
   }
 
+  navigateToAuthor(id){
+    this.router.navigate(['/user-profile/',id]);
+  }
 
 
 

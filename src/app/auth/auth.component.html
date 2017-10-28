@@ -1,0 +1,17 @@
+
+<div class="wrapper">
+<h1>{{title}}</h1>
+  <h4 *ngIf="title=='Sign in'"><a routerLink="/register"> Haven't got an account?</a></h4>
+  <h4 *ngIf="title=='Sign up'"><a routerLink="/login">Already have an account?</a></h4>
+
+  <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+<div class="formBox">
+  <input *ngIf="authType=='register'" type="text" placeholder="Username" formControlName="username">
+  <input type="email" placeholder="email" formControlName="email">
+  <input type="password" placeholder="password" formControlName="password">
+  <button class="btn-submit" type="submit">{{title}}</button>
+</div>
+  </form>
+
+
+</div>

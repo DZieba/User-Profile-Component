@@ -37,7 +37,8 @@ export class UserProfileComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.currentId = params['id'];
-          console.log(this.currentId)
+          console.log(this.currentId);
+          this.user = this.users[this.currentId];
         });
 
 

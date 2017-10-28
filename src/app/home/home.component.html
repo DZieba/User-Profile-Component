@@ -1,0 +1,27 @@
+
+
+<div class="wrapper">
+  <div class="heading">
+    <h1>WatchMe</h1>
+    <h4>Your free app to see others<br>and share your thoughts about gym</h4></div>
+  <div class="profile-container">
+<p class="homeTitle">Popular categories</p>
+<ul class="categories" >
+  <li *ngFor=" let category of categories" (click)="changeCat(category)">{{category}}</li>
+</ul>
+<hr>
+    <nav class="articles_nav">
+      <ul class="articles_list">
+        <li><a>All articles</a></li>
+        <li><a>Your articles</a></li>
+        <li><a>{{currentTag}}</a></li>
+      </ul>
+    </nav>
+<app-article-preview *ngFor="let article of articles" [articleItem]="article
+"></app-article-preview>
+
+
+
+
+  </div>
+</div>

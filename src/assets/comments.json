@@ -4,7 +4,8 @@
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     "author": {
       "image": "../../assets/harvey.jpg",
-      "name": "Harvey Spectre"
+      "name": "Harvey Spectre",
+      "id":"0"
     }
   },
   {
@@ -12,15 +13,17 @@
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     "author": {
       "image": "../../assets/mike.jpg",
-      "name": "Mike Ross"
+      "name": "Mike Ross",
+      "id":"1"
     }
   },
   {
     "date": "2017-10-15T12:20:00.000Z",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     "author": {
-      "image": "../../assets/harvey.jpg",
-      "name": "Harvey Spectre"
+      "image": "../../assets/grana.jpg",
+      "name": "Grana Padano",
+      "id":"7"
     }
   },
   {
@@ -28,23 +31,26 @@
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     "author": {
       "image": "../../assets/Sandra.jpg",
-      "name": "Sandra Almond"
+      "name": "Sandra Almond",
+      "id":"2"
     }
   },
   {
     "date": "2017-10-15T17:17:46.535Z",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     "author": {
-      "image": "../../assets/harvey.jpg",
-      "name": "Harvey Spectre"
+      "image": "../../assets/Alice.jpg",
+      "name": "Alice Bevery",
+      "id":"3"
     }
   },
   {
     "date": "2017-10-15T17:17:46.535Z",
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     "author": {
-      "image": "../../assets/Sandra.jpg",
-      "name": "Sandra Almond"
+      "image": "../../assets/Kate.jpg",
+      "name": "Kate Winston",
+      "id":"5"
     }
   }
 ]

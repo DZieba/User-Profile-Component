@@ -1,0 +1,52 @@
+.wrapper{
+  height:700px;
+  background-color: #efefef;
+  padding:30px;
+}
+
+h1,
+h4{
+  text-align: center;
+  color: #ff600f;
+}
+
+
+h4>a{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.61);
+}
+
+h4>a:hover{
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.formBox{
+  padding:10px;
+  display: flex;
+  flex-direction:column;
+  margin: 40px auto;
+  width:70%;
+
+}
+input{
+  display: inline-block;
+  align-self: center;
+  margin:7px;
+  padding:10px;
+  width:95%;
+  border-radius:5px;
+}
+.btn-submit{
+  background-color: #FFA640;
+  display: block;
+  width: 40%;
+  margin: 20px auto;
+  padding: 13px;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #fff;
+}
+
