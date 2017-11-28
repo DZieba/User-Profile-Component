@@ -26,3 +26,9 @@ ul li.active a{
 
   color: #ff600f;
 }
+
+@media (max-width: 745px){
+.navbar{
+  padding-bottom:30px;
+}
+}
