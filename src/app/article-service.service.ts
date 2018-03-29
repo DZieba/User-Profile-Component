@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ArticleServiceService {
 
-  private articles=[{id:0,title:"What to do 1",autor:"mike",content:"I'm stupid",tagList:['diet','suplements','hydration','sportswear','health','events']},
-    {id:1,title:"What to do 2",autor:"dona",content:"I'm great",tagList:['diet','suplements','hydration','sportswear','health','events']},
-    {id:2,title:"What to do 3",autor:"kladzia",content:"I'm weird",tagList:['diet','suplements','hydration','sportswear','health','events']},
+  private articles=[{id:0,title:"Comment title 1",autor:"Mike",content:"This is my comment",tagList:['diet','suplements','hydration','sportswear','health','events']},
+    {id:1,title:"Comment title 2",autor:"Dona",content:"And this is mine",tagList:['diet','suplements','hydration','sportswear','health','events']},
+    {id:2,title:"Comment title 3",autor:"Klaudia",content:"Hey, I also posted a comment",tagList:['diet','suplements','hydration','sportswear','health','events']},
   ];
 
   constructor() { }

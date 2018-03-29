@@ -3,15 +3,17 @@
 
 }
 .profile-container{
-  height:600px;
+  height:auto;
   background-image:linear-gradient(rgba(238, 238, 238, 0.31), rgba(255, 255, 255, 0.82)), url('../../assets/man.jpg');
   background-size: cover;
 }
+
 h1{
   text-align: center;
   padding:20px 0 10px;
   color: #fff;
   letter-spacing: 2px;
+  font-weight: bold;
 }
 h4{
   text-align: center;
@@ -42,11 +44,21 @@ ul{
   background-color: rgba(0, 44, 113, 0.85);
   border-radius:5px;
   color: #fff;
+  cursor: pointer;
 }
+.categories>li:hover{
+  background-color: rgba(0, 45, 113, 0.658);
+}
+
 .articles_list{
   display: flex;
 }
 .articles_list li{
   margin:5px 10px;
   padding:10px;
+  cursor: pointer;
+}
+ul>li>a:hover{
+  
+  font-weight: bold;
 }

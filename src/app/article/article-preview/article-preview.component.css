@@ -1,0 +1,17 @@
+.article-preview{
+    width:90%;
+    margin:30px auto;
+    border-bottom: 1px solid rgb(128, 128, 128);
+}
+.tagList{
+list-style: none;
+}
+.tagList>li{
+    display: inline-block;
+    padding:10px;
+    margin:5px;
+    background-color: #002C71;
+    border-radius: 20px;
+    color: #eeeeee;
+    font-size: 80%;
+}

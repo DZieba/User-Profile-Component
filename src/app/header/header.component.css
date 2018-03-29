@@ -11,6 +11,15 @@
   padding:15px 10px;
   color: #eeeeee;
 }
+.navbar-brand {
+cursor: pointer;
+
+}
+
+.navbar-brand:hover{
+  font-weight: bold;
+}
+
 .navbar-nav{
   display: flex;
 

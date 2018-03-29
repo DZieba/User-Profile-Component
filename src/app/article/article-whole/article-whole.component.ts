@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Data} from "@angular/router";
+import {ActivatedRoute,Router, Data} from "@angular/router";
 import {ArticleServiceService} from "../../article-service.service";
 
 @Component({
@@ -9,7 +9,8 @@ import {ArticleServiceService} from "../../article-service.service";
 })
 export class ArticleWholeComponent implements OnInit {
 article:any;
-  constructor(private route:ActivatedRoute
+  constructor(private route:ActivatedRoute,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -23,4 +24,9 @@ this.article=data['art'];
 
   }
 
+
+
+  goBack(){
+    this.router.navigate(['/home']);
+  }
 }

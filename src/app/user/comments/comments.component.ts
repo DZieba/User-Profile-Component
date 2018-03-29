@@ -14,10 +14,10 @@ import {Router, ActivatedRoute} from "@angular/router";
 })
 export class CommentsComponent implements OnInit {
   @Input('commentedUser')
-  private commentedUser: User;
-  private comments;
-  private defaultComment: string = 'Add a comment';
-  private sampleUser: User;
+  commentedUser: User;
+  comments;
+   defaultComment: string = 'Add a comment';
+   sampleUser: User;
 
 
   constructor(private commentsService: CommentsService,
